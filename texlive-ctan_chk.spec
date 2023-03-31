@@ -1,6 +1,6 @@
 Name:		texlive-ctan_chk
 Version:	36304
-Release:	1
+Release:	2
 Summary:	CTAN guidelines verifier and corrector for uploading projects
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/ctan_chk
