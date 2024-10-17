@@ -3,7 +3,7 @@ Version:	36304
 Release:	2
 Summary:	CTAN guidelines verifier and corrector for uploading projects
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/ctan_chk
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/ctan_chk
 License:	gpl3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ctan_chk.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ctan_chk.doc.r%{version}.tar.xz
