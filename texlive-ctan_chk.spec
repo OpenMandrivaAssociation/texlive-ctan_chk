@@ -1,37 +1,25 @@
-Name:		texlive-ctan_chk
-Version:	36304
-Release:	2
+%global tl_name ctan_chk
+%global tl_revision 36304
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.0
+Release:	%{tl_revision}.1
 Summary:	CTAN guidelines verifier and corrector for uploading projects
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/ctan_chk
+URL:		https://www.ctan.org/tex-archive/support/ctan_chk
 License:	gpl3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ctan_chk.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ctan_chk.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ctan_chk.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ctan_chk.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-Basic gawk program that uses CTAN's published guidelines for
-authors to help eliminate sloppiness in uploaded
-files/projects. It is completely open for users to program
-additional guidelines as well as CTAN's future adjustments.
+Basic gawk program that uses CTAN's published guidelines for authors to
+help eliminate sloppiness in uploaded files/projects. It is completely
+open for users to program additional guidelines as well as CTAN's future
+adjustments.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/doc/support/ctan_chk
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
